@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel index.js -d build",
+    "build": "babel ./src -d build",
     "start": "cross-env NODE_PATH=./src NODE_ENV=production pm2 start ./index.js --name=api-server",
     "dev": "cross-env NODE_PATH=./src NODE_ENV=development nodemon --exec babel-node ./src/index.js",
     "dev:build": "cross-env NODE_PATH=./src NODE_ENV=development nodemon --exec babel-node ./build/index.js &",
