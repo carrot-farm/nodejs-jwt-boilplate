@@ -7,7 +7,7 @@
     "build": "babel index.js -d build",
     "start": "cross-env NODE_PATH=./src NODE_ENV=production pm2 start ./index.js --name=api-server",
     "dev": "cross-env NODE_PATH=./src NODE_ENV=development nodemon --exec babel-node ./src/index.js",
-    "dev:background": "cross-env NODE_PATH=./src NODE_ENV=development nodemon --exec babel-node ./src/index.js &",
+    "dev:build": "cross-env NODE_PATH=./src NODE_ENV=development nodemon --exec babel-node ./build/index.js &",
     "test": "cross-env NODE_ENV=development babel-node ./node_modules/mocha/bin/mocha"
   },
   "_moduleAliases": {

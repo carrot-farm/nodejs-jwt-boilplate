@@ -22,8 +22,11 @@ jobs:
       - name: 의존성 파일 설치
         run: yarn install
 
+      - name: 빌드
+        run: yarn build
+
       - name: nodejs 실행
-        run: yarn dev:background
+        run: yarn dev:build
 
       - name: 테스트 실행
         run: yarn test
