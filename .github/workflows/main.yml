@@ -1,0 +1,38 @@
+name: nodejs boilerplate test
+on:
+  push:
+    branches:
+      - master
+
+jobs: 
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: 레포지토리 체크아웃
+        uses: actions/checkout@master
+
+      - name: node_modules 디렉토리캐싱
+        uses: actions/cache@v1
+        with: 
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+        
+      - name: 의존성 파일 설치
+        run: yarn install
+
+      - name: nodejs 실행
+        run: yarn dev:background
+
+      - name: 테스트 실행
+        run: yarn test
+
+
+        
+        
+
+
+
+
+
