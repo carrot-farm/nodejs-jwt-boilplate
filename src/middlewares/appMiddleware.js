@@ -2,10 +2,12 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import cors from "cors";
+import helmet from 'helmet';
 
 // ===== 환경 변수
 const env = process.env.NODE_ENV;
 
+// ===== 앱 미들웨어
 const appMiddleware = (app, mysql) => {
   // # express 용 body paser
   app.use(bodyParser.json());
@@ -22,6 +24,9 @@ const appMiddleware = (app, mysql) => {
     methods: ["POST", "GET", "DELETE", "OPTIONS", "PATCH"]
   };
   app.use(cors(corsOptions));
+
+  // # http header 취약점 방어
+  app.use(helmet());
 
   // ===== 개발 환경시만 사용
   if ( env === 'development' ) {

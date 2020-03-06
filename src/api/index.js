@@ -1,13 +1,9 @@
 import { Router } from 'express';
 
-// import oauth from './oauth';
+import test from './test';
 
 const router = new Router();
 
-// router.use('./oauth', oauth);
-
-router.get('/test', (req, res) => {
-  res.send('Hello World');
-})
+router.use('/test', test);
 
 export default router;

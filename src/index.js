@@ -1,19 +1,18 @@
 import '@babel/polyfill';
 import path from 'path';
-import Express, { Router } from "express";
+import Express from "express";
 
-const { parsed, error } = require('dotenv').config(
-  { 
-    path: `./config/.env_${process.env.NODE_ENV}` 
-  }
-);
+// ===== dotenv 적용
+require('dotenv').config({ 
+  path: `./env/.env_${process.env.NODE_ENV}` 
+});
 
 // ===== appRoot 지정
 global.appRoot = path.resolve(__dirname);
 
 // import mongoose from "./config/mongoose";
 // import mysql from "./config/mysql";
-import { appMiddleware, passportMiddleware } from "./middlewares";
+import { appMiddleware } from "./middlewares";
 import api from "./api";
 import staticRouter from "./router";
 
