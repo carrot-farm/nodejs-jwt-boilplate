@@ -1,7 +1,6 @@
 node_modules
 
 # 설정 디렉토리
-env
 
 # 빌드 디렉토리
 build
