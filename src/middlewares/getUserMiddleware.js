@@ -7,8 +7,8 @@
 */
 import passport from "passport";
 
-import User from "models/user";
-import { authToken } from "lib/tools";
+import User from "../models/user";
+import { authToken } from "../lib/tools";
 
 const getUserMiddleware = async (req, res, next) => {
   //   console.log(authToken(req));

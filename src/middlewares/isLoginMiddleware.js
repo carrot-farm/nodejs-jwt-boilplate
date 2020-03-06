@@ -3,7 +3,7 @@
   성공시 req.isAuth=true
   실패시 res.status(401).json({error: true, message:'failed authentication'})
 */
-import { authToken } from "lib/tools";
+import { authToken } from "../lib/tools";
 
 const isLoginMiddleware = async (req, res, next) => {
   if (!req.headers["x-access-token"]) {

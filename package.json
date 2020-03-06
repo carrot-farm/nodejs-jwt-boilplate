@@ -5,15 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "babel ./src -d build",
-    "start": "cross-env NODE_PATH=./src NODE_ENV=production pm2 start ./index.js --name=api-server",
-    "dev": "cross-env NODE_PATH=./src NODE_ENV=development nodemon --exec babel-node ./src/index.js",
-    "dev:build": "cross-env NODE_PATH=./src NODE_ENV=development nodemon --exec babel-node ./build/index.js &",
+    "start": "pm2 start ecosystem.config.js --env production",
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./src/index.js",
+    "dev:build": "cross-env NODE_ENV=development nodemon --exec babel-node ./build/index.js &",
     "test": "cross-env NODE_ENV=development babel-node ./node_modules/mocha/bin/mocha"
-  },
-  "_moduleAliases": {
-    "@root": "./src",
-    "middlewares": "./src/middlewares",
-    "utils": "./src/utils"
   },
   "keywords": [],
   "author": "",

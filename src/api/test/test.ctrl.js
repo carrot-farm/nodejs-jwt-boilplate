@@ -1,4 +1,4 @@
-import curtomError from 'utils/curtomError';
+import curtomError from '../../utils/curtomError';
 
 // ===== helloWorld
 export const helloWorld = (req, res) => {

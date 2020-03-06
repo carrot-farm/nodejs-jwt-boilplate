@@ -3,7 +3,7 @@ import JWTPassport from "passport-jwt";
 import localPassport from "passport-local";
 import googlePassport from "passport-google-auth";
 
-import { pbkdf2Async, getIp } from "lib/tools";
+import { pbkdf2Async, getIp } from "../lib/tools";
 
 // ===== 설정
 const {
