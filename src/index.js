@@ -1,11 +1,23 @@
+import '@babel/polyfill';
+import path from 'path';
 import Express, { Router } from "express";
 
-import "lib/polyfill";
+const { parsed, error } = require('dotenv').config(
+  { 
+    path: `./config/.env_${process.env.NODE_ENV}` 
+  }
+);
+
+// ===== appRoot 지정
+global.appRoot = path.resolve(__dirname);
+
 // import mongoose from "./config/mongoose";
 // import mysql from "./config/mysql";
 import { appMiddleware, passportMiddleware } from "./middlewares";
 import api from "./api";
 import staticRouter from "./router";
+
+
 
 const { PORT: port } = process.env;
 const app = Express();
@@ -18,7 +30,7 @@ const app = Express();
 appMiddleware(app);
 
 // api 라우팅
-// app.use("/api", api);
+app.use("/api", api);
 
 // static 파일 라우팅
 app.use("/", staticRouter);
@@ -27,5 +39,7 @@ app.use("/", staticRouter);
 // passportMiddleware(app);
 
 const server = app.listen(port, () => {
-  console.log(`server listen ${port}`);
+  console.log(`> server listen ${port}`);
 });
+
+export default server;

@@ -2,8 +2,6 @@
 
 * 사용전 설치
 
-- yarn add global pm2
-
 ## 구성
 
 * [ ] express
