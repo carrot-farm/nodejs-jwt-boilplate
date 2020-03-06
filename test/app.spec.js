@@ -1,5 +1,5 @@
 import axios from 'axios';
-const assert = require('assert');
+import assert from 'assert';
 
 // ===== 개발용 환경 변수 가져오기
 require('dotenv').config({ path: `./config/.env_${process.env.NODE_ENV}` });
