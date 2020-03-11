@@ -51,7 +51,7 @@ process.on('SIGINT', () => {
   isDisableKeepAlive = true;
 
   // # 새로운 요청을 받기 않게 앱 종료
-  app.close(function() {
+  server.close(function() {
     console.log('server closed');
     process.exit(0); //
   });
